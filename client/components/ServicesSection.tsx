@@ -1,54 +1,28 @@
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/lib/translations";
+
 export default function ServicesSection() {
+  const { language } = useLanguage();
+  const { t } = useTranslation(language);
+
   const services = [
-    {
-      id: 1,
-      name: "Ticaret ve Şirketler Hukuku",
-      icon: "🏢",
-    },
-    {
-      id: 2,
-      name: "İş Hukuku",
-      icon: "👔",
-    },
-    {
-      id: 3,
-      name: "Marka ve Patent Hukuku",
-      icon: "🔍",
-    },
-    {
-      id: 4,
-      name: "İcra ve İflas Hukuku",
-      icon: "💰",
-    },
-    {
-      id: 5,
-      name: "Vatandaşlık Hukuku",
-      icon: "🌙",
-    },
-    {
-      id: 6,
-      name: "Gayrimenkul Hukuku",
-      icon: "🏠",
-    },
-    {
-      id: 7,
-      name: "Malpraktis Hukuku",
-      icon: "⚕️",
-    },
-    {
-      id: 8,
-      name: "Aile ve Miras Hukuku",
-      icon: "👨‍👩‍👧‍👦",
-    },
+    { id: 1, key: "commercialLaw", icon: "🏢" },
+    { id: 2, key: "laborLaw", icon: "👔" },
+    { id: 3, key: "intellectualProperty", icon: "🔍" },
+    { id: 4, key: "bankruptcyLaw", icon: "💰" },
+    { id: 5, key: "citizenshipLaw", icon: "🌙" },
+    { id: 6, key: "realEstateLaw", icon: "🏠" },
+    { id: 7, key: "malpracticeLaw", icon: "⚕️" },
+    { id: 8, key: "familyLaw", icon: "👨‍👩‍👧‍👦" },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-beige">
+    <section className="py-16 md:py-24 bg-beige" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-beige-dark inline-block px-8 py-3 bg-beige-light rounded-full">
-            Hizmetlerimiz
+          <h2 className="text-4xl md:text-5xl font-bold text-beige-dark inline-block px-8 py-3 bg-beige-light rounded-full">
+            {t('services.title')}
           </h2>
         </div>
 
@@ -61,7 +35,7 @@ export default function ServicesSection() {
             >
               <div className="text-5xl mb-4">{service.icon}</div>
               <h3 className="text-lg md:text-xl font-medium text-beige-dark">
-                {service.name}
+                {t(`services.items.${service.key}`)}
               </h3>
             </div>
           ))}

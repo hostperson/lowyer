@@ -146,3 +146,185 @@
     @apply text-base md:text-lg leading-relaxed;
   }
 }
+
+/* ==========================================
+   Loading Screen - Law Scale Animation
+   ========================================== */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, hsl(28 30% 95%) 0%, hsl(28 28% 88%) 50%, hsl(16 20% 42% / 0.1) 100%);
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInScreen 0.4s ease-out;
+}
+
+.loading-bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 30px, hsl(16 20% 42%) 30px, hsl(16 20% 42%) 31px),
+    repeating-linear-gradient(-45deg, transparent, transparent 30px, hsl(16 20% 42%) 30px, hsl(16 20% 42%) 31px);
+}
+
+.scale-container {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 2rem;
+  animation: scaleAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.scale-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 12px hsl(16 20% 42% / 0.15));
+}
+
+/* SVG element styles */
+.scale-base {
+  fill: hsl(16 20% 42%);
+}
+
+.scale-pillar {
+  fill: hsl(16 20% 42%);
+}
+
+.scale-ornament {
+  fill: hsl(43 68% 50%);
+  filter: drop-shadow(0 0 6px hsl(43 68% 50% / 0.4));
+}
+
+.scale-ornament-inner {
+  fill: hsl(43 68% 60%);
+}
+
+.scale-arm {
+  fill: hsl(16 20% 42%);
+}
+
+.scale-chain {
+  stroke: hsl(16 20% 42%);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.scale-plate {
+  fill: hsl(43 68% 50%);
+}
+
+.scale-plate-inner {
+  fill: hsl(43 68% 55%);
+}
+
+/* Balance beam swing animation */
+.scale-beam {
+  transform-origin: 100px 64px;
+  animation: swingBalance 2.5s ease-in-out infinite;
+}
+
+/* Text styles */
+.loading-text {
+  text-align: center;
+  animation: fadeSlideUp 0.8s ease-out 0.3s both;
+}
+
+.loading-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: hsl(16 20% 42%);
+  margin-bottom: 0.5rem;
+}
+
+.loading-divider {
+  width: 60px;
+  height: 2px;
+  margin: 0 auto 0.5rem;
+  background: linear-gradient(90deg, transparent, hsl(43 68% 50%), transparent);
+  animation: expandDivider 1s ease-out 0.6s both;
+}
+
+.loading-subtitle {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: hsl(16 20% 55%);
+}
+
+/* Progress bar */
+.loading-progress-container {
+  width: 200px;
+  height: 2px;
+  margin-top: 2rem;
+  border-radius: 2px;
+  background: hsl(28 28% 85%);
+  overflow: hidden;
+  animation: fadeSlideUp 0.8s ease-out 0.5s both;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, hsl(43 68% 50%), hsl(43 68% 60%));
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px hsl(43 68% 50% / 0.4);
+}
+
+/* Keyframes */
+@keyframes fadeInScreen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes swingBalance {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(6deg);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandDivider {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}

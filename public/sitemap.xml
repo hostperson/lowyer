@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://ceylan.av.tr/</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ceylan.av.tr/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ceylan.av.tr/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ceylan.av.tr/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ceylan.av.tr/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ceylan.av.tr/?lang=ar"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://ceylan.av.tr/hakkimizda</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Team -->
+  <url>
+    <loc>https://ceylan.av.tr/takimimiz</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://ceylan.av.tr/blog</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://ceylan.av.tr/iletisim</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts - Turkish -->
+  <url>
+    <loc>https://ceylan.av.tr/blog/antalya-gayrimenkul-hukuku-yabanci-yatirimcilar</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ceylan.av.tr/blog/istanbul-ticaret-hukuku-sirket-kurulus</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ceylan.av.tr/blog/turkiye-vatandaslik-hukuku-basvuru-sureci</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ceylan.av.tr/blog/antalya-aile-hukuku-bosanma-sureci</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ceylan.av.tr/blog/istanbul-icra-iflas-hukuku-alacak-takibi</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

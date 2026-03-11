@@ -1,7 +1,25 @@
-User-agent: Googlebot
+User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 2
+
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Twitterbot
@@ -10,5 +28,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Sitemap: https://ceylan.av.tr/sitemap.xml

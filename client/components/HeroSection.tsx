@@ -1,69 +1,81 @@
-export default function HeroSection() {
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/lib/translations";
+
+function HeroImage({ src, alt }: { src: string; alt: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div className="w-full h-full bg-gradient-to-br from-[hsl(16,20%,42%)] to-[hsl(16,20%,32%)] flex items-center justify-center rounded-2xl">
+        <span className="text-5xl font-bold text-white/90 tracking-wider">KC</span>
+      </div>
+    );
+  }
   return (
-    <section className="relative bg-gradient-to-r from-beige-light to-beige py-12 md:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Left side - Image placeholder */}
-          <div className="flex justify-center">
-            <div className="w-full max-w-sm bg-beige-dark rounded-2xl aspect-square flex items-center justify-center text-white text-sm">
-              {/* Placeholder for lawyer image */}
-              <div className="text-center">
-                <div className="text-6xl mb-4">⚖️</div>
-                <p>Avukat Fotoğrafı</p>
-              </div>
-            </div>
+    <img src={src} alt={alt} className="w-full max-w-sm rounded-2xl aspect-square object-cover shadow-lg" onError={() => setFailed(true)} />
+  );
+}
+
+export default function HeroSection() {
+  const { language } = useLanguage();
+  const { t } = useTranslation(language);
+
+  return (
+    <section className="relative bg-gradient-to-r from-beige-light to-beige overflow-hidden" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+      {/* Banner Image */}
+      <div className="w-full">
+        <img
+          src="/images/banner.avif"
+          alt="Ceylan Hukuk Bürosu Banner"
+          className="w-full h-auto object-cover hidden md:block"
+        />
+      </div>
+
+      {/* Mobile fallback + content */}
+      <div className="md:hidden py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mb-8">
+            <HeroImage src="/images/team/kutluay-ceylan.avif" alt="Av. K. Kutluay Ceylan" />
           </div>
-
-          {/* Right side - Content */}
-          <div className="text-center md:text-left">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-beige-dark mb-4">
-              CEYLAN
+          <div className="text-center">
+            <h1 className="text-5xl font-bold text-beige-dark mb-4">
+              {t('hero.title')}
             </h1>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-beige-dark mb-8">
-              HUKUK BÜROSU
+            <h2 className="text-2xl font-bold text-beige-dark mb-6">
+              {t('hero.subtitle')}
             </h2>
-
-            {/* Contact info badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <span className="text-gold text-2xl">📞</span>
-                <span className="text-sm text-beige-dark">+90 532 247 63 86</span>
-              </div>
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <span className="text-gold text-2xl">📞</span>
-                <span className="text-sm text-beige-dark">+90 506 820 49 98</span>
-              </div>
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <span className="text-gold text-2xl">📧</span>
-                <span className="text-sm text-beige-dark">info@ceylan.av.tr</span>
-              </div>
-              <div className="flex items-center justify-center md:justify-start gap-2">
-                <span className="text-gold text-2xl">📞</span>
-                <span className="text-sm text-beige-dark">+90 242 243 46 23</span>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-beige-dark text-lg leading-relaxed mb-8">
-              Ceylan Hukuk Bürosu, 1987'den beri donanımlı ve deneyimli takımıyla Istanbul ve Antalya'da hizmet vermektedir.
+            <p className="text-beige-dark text-base leading-relaxed mb-8">
+              {t('hero.description')}
             </p>
-
-            {/* Navigation buttons */}
-            <div className="flex gap-4 justify-center md:justify-start flex-wrap">
-              <button className="px-8 py-3 bg-beige-dark text-white rounded-full hover:bg-opacity-90 transition-all font-medium">
-                Hakkımızda
-              </button>
-              <button className="px-8 py-3 border-2 border-beige-dark text-beige-dark rounded-full hover:bg-beige-light transition-all font-medium">
-                İletişim
-              </button>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link to="/hakkimizda" className="px-8 py-3 bg-beige-dark text-white rounded-full hover:bg-opacity-90 transition-all font-medium">
+                {t('hero.buttons.about')}
+              </Link>
+              <Link to="/iletisim" className="px-8 py-3 border-2 border-beige-dark text-beige-dark rounded-full hover:bg-beige-light transition-all font-medium">
+                {t('hero.buttons.contact')}
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Decorative circles */}
-      <div className="absolute top-20 right-10 w-32 h-32 border-4 border-beige-dark rounded-full opacity-20"></div>
-      <div className="absolute bottom-10 left-10 w-24 h-24 border-4 border-beige-dark rounded-full opacity-20"></div>
+      {/* Desktop content below banner */}
+      <div className="hidden md:block py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-beige-dark text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
+            {t('hero.description')}
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link to="/hakkimizda" className="px-8 py-3 bg-beige-dark text-white rounded-full hover:bg-opacity-90 transition-all font-medium">
+              {t('hero.buttons.about')}
+            </Link>
+            <Link to="/iletisim" className="px-8 py-3 border-2 border-beige-dark text-beige-dark rounded-full hover:bg-beige-light transition-all font-medium">
+              {t('hero.buttons.contact')}
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

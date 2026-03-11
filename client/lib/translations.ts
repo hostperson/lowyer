@@ -6,7 +6,15 @@ const translations: Record<Language, Record<string, any>> = {
       home: 'Anasayfa',
       about: 'Hakkımızda',
       team: 'Takımımız',
+      blog: 'Blog',
       contact: 'İletişim',
+    },
+    blog: {
+      title: 'Hukuk Blogu',
+      readMore: 'Devamını Oku',
+      backToBlog: 'Bloga Dön',
+      publishedOn: 'Yayınlanma Tarihi',
+      category: 'Kategori',
     },
     hero: {
       title: 'CEYLAN',
@@ -145,7 +153,15 @@ const translations: Record<Language, Record<string, any>> = {
       home: 'Home',
       about: 'About',
       team: 'Team',
+      blog: 'Blog',
       contact: 'Contact',
+    },
+    blog: {
+      title: 'Law Blog',
+      readMore: 'Read More',
+      backToBlog: 'Back to Blog',
+      publishedOn: 'Published on',
+      category: 'Category',
     },
     hero: {
       title: 'CEYLAN',
@@ -284,7 +300,15 @@ const translations: Record<Language, Record<string, any>> = {
       home: 'Startseite',
       about: 'Über uns',
       team: 'Team',
+      blog: 'Blog',
       contact: 'Kontakt',
+    },
+    blog: {
+      title: 'Rechts-Blog',
+      readMore: 'Weiterlesen',
+      backToBlog: 'Zurück zum Blog',
+      publishedOn: 'Veröffentlicht am',
+      category: 'Kategorie',
     },
     hero: {
       title: 'CEYLAN',
@@ -423,7 +447,15 @@ const translations: Record<Language, Record<string, any>> = {
       home: 'Главная',
       about: 'О нас',
       team: 'Команда',
+      blog: 'Блог',
       contact: 'Контакты',
+    },
+    blog: {
+      title: 'Юридический блог',
+      readMore: 'Читать далее',
+      backToBlog: 'Вернуться к блогу',
+      publishedOn: 'Дата публикации',
+      category: 'Категория',
     },
     hero: {
       title: 'CEYLAN',
@@ -562,7 +594,15 @@ const translations: Record<Language, Record<string, any>> = {
       home: 'الصفحة الرئيسية',
       about: 'معلومات عنا',
       team: 'فريقنا',
+      blog: 'المدونة',
       contact: 'تواصل معنا',
+    },
+    blog: {
+      title: 'المدونة القانونية',
+      readMore: 'اقرأ المزيد',
+      backToBlog: 'العودة إلى المدونة',
+      publishedOn: 'تاريخ النشر',
+      category: 'الفئة',
     },
     hero: {
       title: 'CEYLAN',
@@ -698,7 +738,7 @@ const translations: Record<Language, Record<string, any>> = {
   },
 };
 
-export function getTranslation(language: Language, key: string): string {
+export function getTranslation(language: Language, key: string): any {
   const keys = key.split('.');
   let value: any = translations[language];
 
@@ -710,7 +750,7 @@ export function getTranslation(language: Language, key: string): string {
     }
   }
 
-  return typeof value === 'string' ? value : key;
+  return value ?? key;
 }
 
 export function useTranslation(language: Language) {
